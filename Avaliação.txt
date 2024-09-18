@@ -1,0 +1,105 @@
+Avaliação semestral de Pesquisa e Ordenação
+18/09/2024
+Nome: Anthony da Silva Guedes
+
+assunto: Prova Pesquisa e Ordenação.
+
+1) O que é Ordenação e qual seu papel nos sistemas de infromação?
+    Organizar(crescente, decrescente) uma estrutura de dados obedecendo uma 'chave',
+    organizamos para otimizar a busca e pesquisa de dados de uma estrutura.
+
+2) Na contrução de algortimos, por exemplo, algortimos de Ordenação, há o conceito de complexidade. 
+Assim, em ordenação como se calcula ou se mede a complexidade?
+
+    A complexidade de tempo analisa o número de operações que o algoritmo executa (normalmente representada por n).
+    A complexidade espacial mede a quantidade de memória que o algoritmo necessita.
+    Exemplo:
+    o algoritmo de ordenação por bolha tem complexidade de tempo 𝑂(𝑛^2), pois compara pares de elementos repetidamente.
+
+    |complexidade -> esforço computacional (temporal) ou memória ocupada (espacial)|
+    'melhores métodos' são os de complexidade baixa: 
+        - Quick (complexidade temporal - O(log n)) (complexidade espacial - O(1)) 
+        - Merge (complexidade temporal - O(log n)) (complexidade espacial - O(n))
+
+    |OBS: Depende por: - Tamanho da estrutura - Quanto a estrutura está organizada|
+
+3)Novamente, no contexto de algortimos de ordenação, há algortimos
+estáveis e instáveis. Explique o que isso significa.
+
+    - Um algoritmo de ordenação é estável quando mantém a ordem relativa dos elementos iguais.
+    - Um algoritmo instável muda a ordem.
+
+    Exemplo: uma ordenação de Objeto Pessoa, pelo nome; uma ordenação estável preserva a ordem de PESSOA com o mesmo nome baseado em outro atributo, como um ID.
+
+    estabilidade -> em processo de Ordenação mantem a Ordenação, no processo de Ordenação há uma "bagunça temporária" na estrutura de dados.
+
+4)Dos algortimos estudados (bolha, seleção, inserção e pente), há um desses que tem desempenho muito bom. Qual é? 
+e qual o recurso computacional que ele utiliza para ser tão melhor que os outros? Explique.
+
+    O Pente seria o melhor quando estamos trabalhando com listas maiores e desordenadas.
+    O Comb Sort é versão otimizada do Bubble Sort, diferença: elimina pequenas variações de locais de comparação na lista 
+    compara elementos que estão distantes entre si e gradualmente reduz essa distância, conforme a lista é ordenada. 
+
+    EXEMPLO: 
+    |0| |1| |2| |3| |4| |5| |6| - índices
+     7   3   5   1   8   2   5  - valores (antes da ordenação)
+
+    distância = gap ,  usando gaps grandes que diminuem gradualmente):
+
+    Gap inicial = 4:
+    Compara 7 e 8, sem troca.
+    Compara 3 e 2, trocado: 7, 2, 5, 1, 8, 3, 5.
+
+    gap--;
+
+    Gap = 3:
+    Compara 7 e 1, trocado: 1, 2, 5, 7, 8, 3, 5.
+    Compara 2 e 8, sem troca.
+    Compara 5 e 5, sem troca.
+
+5) Observe a sequencia de números no vetor:
+    |0|   |1|   |2|   |3|   |4|   |5|   |6|   -indices
+     7     3     5     1     8     2     5    -valores
+
+    a) Quantas comparações e trocas vão ocorrer usando o bolha?
+
+    Bubble Sort - Comparações: 20, Trocas: 11
+
+    b) Quantas comparações e trocas vão ocorrer usando o pente?
+    Gap inicial = 7 / 1.3 ≈ 5:
+    
+    Comb Sort - Comparações: 23, Trocas: 5
+
+6)Dos métodos estudados bolha, seleção, inserção e pente. Quais são estáveis e quais são instáveis?
+    Estáveis: Bolha e inserção;
+    Os algoritmos são estáveis porque quando encontram dois elementos iguais, não os trocam. 
+    Eles só faz trocas quando o elemento anterior é maior que o próximo. 
+
+    Instáveis: Seleção e pente;
+     O algoritmo de seleção não é estável porque ele seleciona o menor elemento em cada iteração e o troca com o primeiro elemento da sublista desordenada.
+     O algoritmo de pente não é estável, Isso acontece porque ele faz comparações com elementos que estão distantes uns dos outros.
+
+7)No processo de ordenação de listas contendo objetos, como pessoas que derivam de classe Pessoa(nome, email, telefone, curso)
+para usar o métodos Sort() em Java ou C sharp é preciso realizar alterações na classe Pessoa para que a ordenação ocorra corretamente.
+Exemplifique e explique quaL(is) é(são) essa(s) alterações? Assuma que o atributo chave de ordenação da classe Pessoa é o nome seguido de curso.
+
+você deve fazer alterações no método compareTo, para que ele faça a comparação entre primeiro um atributo de sua escolha como Nome ou ID, podendo ter um segundo atributo para comparar.
+Nesse caso deve ser reescrito para fazer uma comparação entre os Objetos Aluno entre si, mas fazendo a ordenação por algum atributo, variavel que for seleciona; 
+como Nome ( por ordem alfabética), como ID (ordenação numérica)
+
+    EXEMPLO:
+ @Override  //passar Objeto a ser comparado como parâmetro 
+    public int compareTo(Aluno outro) {
+            //comparação por nome, ordem alfabética
+        int resultado = this.nome.compareTo(outro.nome); 
+
+            //nomes forem iguais cai no laço IF do 'resultado == 0', e então compara pela idade (ordem númerica)
+        if (resultado == 0) {
+            resultado = Integer.compare(this.idade, outro.idade);
+        }
+
+        return resultado;
+    }
+
+
+
