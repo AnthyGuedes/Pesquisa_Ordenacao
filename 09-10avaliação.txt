@@ -1,0 +1,25 @@
+2 milhões de números aleatórios, buscando um número que não está presente na estrutura
+Comparação entre duas abordagens, Qual abordagem é mais eficiente?
+
+1)Inserção em uma árvore binária (com ordenação garantida) e aplicação de busca binária.
+
+2)Inserção em uma lista desordenada, aplicação do método sort() e verificação com contains em uma árvore
+
+[RESPOSTA: Abordagem 1]
+
+- Abordagem [1] (Árvore): Boa para cenários em que você insere dados e realizara buscas continuamente, 
+mas com custos de processo, devido à complexidade da estrutura.
+
+- Abordagem [2] (Lista + Sort): Mais eficiente para inserção inicial, com uma única operação de ordenação otimizada 
+e buscas sequências. Por se tratar de uma lista logo é mais simples sua questões de estrtura.
+
+teste (2 Milhões):
+
+Testando a abordagem com árvore...
+Número encontrado na árvore: Não
+Tempo de busca: 0.000002100 segundos
+
+Testando a abordagem com lista desordenada...
+Número encontrado na lista: Não
+Tempo de ordenação: 0.754583600 segundos
+Tempo de busca: 0.000026900 segundos
