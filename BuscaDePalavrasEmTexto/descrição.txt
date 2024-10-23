@@ -1,4 +1,4 @@
-                              **|BUSCA DE PALAVRAS EM UM TEXTO|**
+https://www.ime.usp.br/~pf/algoritmos/aulas/strma.html     **|BUSCA DE PALAVRAS EM UM TEXTO|**
 PROCURAR UMA PALAVRA NUM TEXTO - "Substring Searching" ou "String Matching".
 
 ** Exercícios 1 **
